@@ -17,9 +17,13 @@
 	<body>
 		<div class="container">
 			<h1 class="center">Labb 1 - Grupp 10</h1>
+			<div class="row">
+				<div class="member"><span>Oscar Vestlund</span></div>
+				<div class="member"><span>Max Mattsson</span></div>
+			</div>
 			<div id="box" class="box">
 				<div class="row">
-				  <label for="color__input">Färg</label> <input type="text" name="color" id="color__input" class="textfield" />
+				  <label for="color">Färg</label> <input type="text" name="color" id="color" class="textfield" />
 				</div>
 				<div class="row">
 				  <label for="content">Innehåll</label> <input type="text" name="content" id="content" class="textfield" />
@@ -29,8 +33,11 @@
 				  <input type="checkbox" name="divStyle" id="divStyle" class="checkbox" />
 				</div>
 		
-				<button id="submitBtn" class="btn">Ta bort</button>
-				<div id="messageBox">Div som egentligen ska vara tom</div>
+				<button id="submitBtn" class="btn btn--danger">Ta bort</button>
+				<div id="messageBox" class="message-box">
+					<div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+
+				</div>
 			  </div>
 		</div>
 

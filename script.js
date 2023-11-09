@@ -6,18 +6,23 @@ console.log("Hej världen!");
 const checkbox = document.getElementById('divStyle');
 const textfields = document.querySelectorAll('.textfield');
 const messageBox = document.getElementById('messageBox');
+const submitBtn = document.getElementById('submitBtn');
 
-let hej = "Det här skrev du i";
 
 console.log(typeof(textfields));
 
 textfields.forEach((item) =>{
-    item.addEventListener('click', (e) =>{
+    item.addEventListener('blur', (e) =>{
         
-     
-        console.log(e)
-        console.log(item.value);
-        messageBox.innerHTML = hej + " " + item.value;
+        if (item.name == "color"){
+            return;
+        }
+        else{
+            console.log(e)
+            console.log(item.value);
+            messageBox.insertAdjacentHTML("afterbegin",`<div class="message">${item.value}</div>`);
+
+        }
         
     });
 });
@@ -28,11 +33,16 @@ function colorizeDiv()
 	//console.log(checkbox.checked);
 	if( checkbox.checked === true)
 	{
-		messageBox.style.color = document.getElementById("color__input").value;
+		messageBox.style.color = document.getElementById("color").value;
 	}
 	else
 	{
-		messageBox.style.color = "white";
+		messageBox.style.color = "#e0e6eb";
 	}
 }
 checkbox.addEventListener('click', colorizeDiv);
+
+
+submitBtn.addEventListener('click', () =>{
+    messageBox.innerHTML = "";
+});
