@@ -23,9 +23,16 @@ textfields.forEach((item) =>{
 });
 
 
-
-let value = document.getElementById('textbox').value;
-console.log(value);
-
-
-
+function colorizeDiv()
+{
+	//console.log(checkbox.checked);
+	if( checkbox.checked === true)
+	{
+		messageBox.style.color = document.getElementById("color__input").value;
+	}
+	else
+	{
+		messageBox.style.color = "white";
+	}
+}
+checkbox.addEventListener('click', colorizeDiv);
