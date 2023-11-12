@@ -1,7 +1,3 @@
-console.log("Hej världen!");
-
-
-
 
 const checkbox = document.getElementById('divStyle');
 const textfields = document.querySelectorAll('.textfield');
