@@ -8,6 +8,7 @@ const textfields = document.querySelectorAll('.textfield');
 const messageBox = document.getElementById('messageBox');
 const submitBtn = document.getElementById('submitBtn');
 
+let currentStyle = "#0e0e0e;";
 
 console.log(typeof(textfields));
 
@@ -15,12 +16,12 @@ textfields.forEach((item) =>{
     item.addEventListener('blur', (e) =>{
         
         if (item.name == "color"){
-            return;
+	    colorizeDiv();
         }
         else{
             console.log(e)
             console.log(item.value);
-            messageBox.insertAdjacentHTML("afterbegin",`<div class="message">${item.value}</div>`);
+            messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${item.value}</div>`);
 
         }
         
@@ -33,11 +34,11 @@ function colorizeDiv()
 	//console.log(checkbox.checked);
 	if( checkbox.checked === true)
 	{
-		messageBox.style.color = document.getElementById("color").value;
+		currentStyle = document.getElementById("color").value;
 	}
 	else
 	{
-		messageBox.style.color = "#e0e6eb";
+		currentStyle = "#0e0e0e;";
 	}
 }
 checkbox.addEventListener('click', colorizeDiv);
