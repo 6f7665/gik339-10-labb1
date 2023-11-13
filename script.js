@@ -17,13 +17,20 @@ textfields.forEach((item) =>{
         else{
             console.log(e)
             console.log(item.value);
-            messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${item.value}</div>`);
-
+            //messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${item.value}</div>`);
+            createBox(item.value);
         }
         
     });
 });
 
+
+
+function createBox(content)
+{
+	messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${content}</div>`);
+
+}
 
 function colorizeDiv()
 {
