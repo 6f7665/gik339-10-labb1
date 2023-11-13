@@ -24,7 +24,19 @@ textfields.forEach((item) =>{
     });
 });
 
-
+textfields.forEach((item) =>{
+	if (item.name == "color"){
+		colorizeDiv();
+	}
+	else
+	{
+		item.addEventListener("keypress", function(event) {
+			if (event.key === "Enter") {
+				createBox(item.value);
+			}
+		});
+	}
+});
 
 function createBox(content)
 {
