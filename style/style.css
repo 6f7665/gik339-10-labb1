@@ -30,11 +30,20 @@ input {
     max-width: 40rem;
     padding: 1rem;
     color: var(--text-color);
+}
+input[type="text"]{
     width: 80%;
+}
+input[type="checkbox"]{
+    min-width: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
 }
 input[type="text"]:focus {
     outline: 1px solid var(--primary-color);
 }
+
+
 /* width */
 ::-webkit-scrollbar {
     width: 1rem;
@@ -121,14 +130,20 @@ body{
 .message-box{
     margin-top: 2rem;
     display: grid;
-    gap: 1rem;
+    border-radius: .5rem;
+    
 }
 .message{
+    padding: 1rem;
+    margin: 0 1rem 1rem 1rem;
     border: 1px solid var(--text-color);
     border-radius: .5rem;
-    padding: 2rem;
+    background-color: black;
     transition: color 300ms ease-in-out;
     -webkit-animation: spawn 600ms ease-in-out;
+}
+.message:first-child{
+    margin-block-start: 1rem;
 }
 
 

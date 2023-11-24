@@ -1,52 +1,48 @@
 
+//Uppgift 4 Skapa variabler
 const checkbox = document.getElementById('divStyle');
 const textfields = document.querySelectorAll('.textfield');
 const messageBox = document.getElementById('messageBox');
-const submitBtn = document.getElementById('submitBtn');
-
-let currentStyle = "#0e0e0e;";
-
-console.log(typeof(textfields));
-
-textfields.forEach((item) =>{
-    item.addEventListener('blur', (e) =>{
-        
-        if (item.name == "color"){
-	    colorizeDiv();
-        }
-        else{
-            console.log(e)
-            console.log(item.value);
-            //messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${item.value}</div>`);
-            createBox(item.value);
-        }
-        
-    });
-});
+const deleteBtn = document.querySelector('#deleteBtn');
 
 
+
+// Uppgift 5 - Skapa en fördefinierad funktion
+function handleEvent(e){
+    console.log(e.target);
+    console.log(e.target.name);
+    if (e.target.name === "content"){
+        createBox(e.target.value);
+    }
+}
 
 function createBox(content)
 {
-	messageBox.insertAdjacentHTML("afterbegin",`<div class="message" style="background-color: ${currentStyle}">${content}</div>`);
-
+    const newElement = document.createElement('div');
+    newElement.classList.add('message'); 
+    newElement.innerHTML = content;
+    messageBox.insertAdjacentElement('afterbegin', newElement);
 }
 
-function colorizeDiv()
-{
-	//console.log(checkbox.checked);
-	if( checkbox.checked === true)
-	{
-		currentStyle = document.getElementById("color").value;
-	}
-	else
-	{
-		currentStyle = "#0e0e0e;";
-	}
-}
-checkbox.addEventListener('click', colorizeDiv);
+//uppgift 6 - Eventlyssnare till checkboxen
+checkbox.addEventListener('change', () =>{
+    // vill helst inte referera till index 0
+    if (checkbox.checked === true){
+        messageBox.style.backgroundColor = textfields[0].value;
+        deleteBtn.style.backgroundColor = textfields[0].value;
+    }
+    else{
+        messageBox.style.backgroundColor = "transparent";
+    }
 
+});
+// uppgift 6 eventlyssnare till textfälten
 
-submitBtn.addEventListener('click', () =>{
+textfields.forEach((item) =>{
+    item.addEventListener('blur', handleEvent);
+});
+
+//upgift 6 eventlyssnare till knappen
+deleteBtn.addEventListener('click', () =>{
     messageBox.innerHTML = "";
 });
