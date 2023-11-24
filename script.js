@@ -1,15 +1,12 @@
-
 //Uppgift 4 Skapa variabler
 const checkbox = document.getElementById('divStyle');
 const textfields = document.querySelectorAll('.textfield');
 const messageBox = document.getElementById('messageBox');
 const deleteBtn = document.querySelector('#deleteBtn');
 
-
-
 // Uppgift 5 - Skapa en fördefinierad funktion
 function handleEvent(e){
-    console.log(e.target);
+    console.log(e.target); //skriv ut i konsollen enligt uppgift
     console.log(e.target.name);
     if (e.target.name === "content"){
         createBox(e.target.value);
@@ -26,7 +23,6 @@ function createBox(content)
 
 //uppgift 6 - Eventlyssnare till checkboxen
 checkbox.addEventListener('change', () =>{
-    // vill helst inte referera till index 0
     if (checkbox.checked === true){
         messageBox.style.backgroundColor = textfields[0].value;
         deleteBtn.style.backgroundColor = textfields[0].value;
@@ -37,10 +33,7 @@ checkbox.addEventListener('change', () =>{
 
 });
 // uppgift 6 eventlyssnare till textfälten
-
-textfields.forEach((field) =>{
-    field.addEventListener('blur', handleEvent);
-});
+textfields.forEach((field) => field.addEventListener('blur', handleEvent));
 
 //upgift 6 eventlyssnare till knappen
 deleteBtn.addEventListener('click', () =>{
