@@ -38,8 +38,8 @@ checkbox.addEventListener('change', () =>{
 });
 // uppgift 6 eventlyssnare till textfälten
 
-textfields.forEach((item) =>{
-    item.addEventListener('blur', handleEvent);
+textfields.forEach((field) =>{
+    field.addEventListener('blur', handleEvent);
 });
 
 //upgift 6 eventlyssnare till knappen
