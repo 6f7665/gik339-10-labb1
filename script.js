@@ -5,19 +5,7 @@ const textfields = document.querySelectorAll('.textfield');
 const messageBox = document.getElementById('messageBox');
 const deleteBtn = document.querySelector('#deleteBtn');
 
-textfields.forEach((item) =>{
-	if (item.name == "color"){
-		colorizeDiv();
-	}
-	else
-	{
-		item.addEventListener("keypress", function(event) {
-			if (event.key === "Enter") {
-				createBox(item.value);
-			}
-		});
-	}
-});
+
 
 // Uppgift 5 - Skapa en fördefinierad funktion
 function handleEvent(e){
